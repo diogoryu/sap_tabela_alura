@@ -1,0 +1,57 @@
+*&=====================================================================*
+*&  Include           Z_ATUALIZA_COPA_ANALISE_FORM
+*&=====================================================================*
+*&=====================================================================*
+*&      Form  F_MOVE_OS_DADOS
+*&=====================================================================*
+*       text
+*&=====================================================================*
+FORM f_move_os_dados .
+  MOVE: p_bukrs  TO gs_zta_copa-bukrs,
+        p_opera  TO gs_zta_copa-operacao,
+        p_cmp_vl TO gs_zta_copa-campo_de_valor,
+        p_tipo   TO gs_zta_copa-tipo_registro,
+        p_valor  TO gs_zta_copa-valor,
+        sy-datum TO gs_zta_copa-data_alteracao_criacao,
+        sy-uname TO gs_zta_copa-usuario,
+        sy-timlo TO gs_zta_copa-hora.
+ENDFORM.
+*&=====================================================================*
+*&      Form  F_INSERE_DADOS_TABELA
+*&=====================================================================*
+*       text
+*&=====================================================================*
+FORM f_insere_dados_tabela .
+
+  MODIFY zta_copa_analise FROM gs_zta_copa.
+*  SELECT COUNT(*)
+*    FROM zta_copa_analise.
+*  IF sy-subrc IS INITIAL.
+*    INSERT zta_copa_analise FROM gs_zta_copa.
+*    IF sy-subrc IS INITIAL.
+*      MESSAGE: 'Dados cadastrado com sucesso' TYPE 'S'.
+*    ENDIF.
+*  ELSE.
+*    PERFORM: f_atualiza_tabela_copa.
+*  ENDIF.
+ENDFORM.
+*&=====================================================================*
+*&      Form  F_ATUALIZA_TABELA_COPA
+*&=====================================================================*
+*       text
+*&=====================================================================*
+FORM f_atualiza_tabela_copa .
+*update zta_copa_analise FROM gs_zta_copa.
+
+*    UPDATE zta_copa_analise
+*           SET valor                  = gs_zta_copa-valor
+*               data_alteracao_criacao = gs_zta_copa-data_alteracao_criacao
+*               usuario                = gs_zta_copa-usuario
+*               hora                   = gs_zta_copa-hora
+*           WHERE bukrs          = gs_zta_copa-bukrs           and
+*                 operacao       = gs_zta_copa-operacao        AND
+*                 campo_de_valor = gs_zta_copa-campo_de_valor  AND
+*                 tipo_registro  = gs_zta_copa-tipo_registro.
+ENDFORM.
+
+

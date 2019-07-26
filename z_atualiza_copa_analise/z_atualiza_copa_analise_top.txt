@@ -1,0 +1,21 @@
+*&=====================================================================*
+*&  Include           Z_ATUALIZA_COPA_ANALISE_TOP
+*&=====================================================================*
+
+*&=====================================================================*
+*& Estruturas
+*&=====================================================================*
+DATA: gs_zta_copa TYPE zta_copa_analise.
+
+*&=====================================================================*
+*& Tela de Seleção
+*&=====================================================================*
+SELECTION-SCREEN: BEGIN OF BLOCK bl01 WITH FRAME TITLE TEXT-001.
+PARAMETERS: p_bukrs  TYPE bukrs,
+            p_opera  TYPE zta_copa_analise-operacao,
+            p_tipo   TYPE zta_copa_analise-tipo_registro,
+            p_cmp_vl TYPE zta_copa_analise-campo_de_valor,
+            p_valor  TYPE zta_copa_analise-valor.
+SELECTION-SCREEN: END OF BLOCK bl01.
+
+

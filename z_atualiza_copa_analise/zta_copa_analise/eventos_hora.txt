@@ -1,0 +1,8 @@
+*----------------------------------------------------------------------*
+***INCLUDE LZGF_COPA_ANALISEF02.
+*----------------------------------------------------------------------*
+form F_GRAVA_DADOS_LOG_2.
+  zta_copa_analise-data_alteracao_criacao = sy-datlo.
+  zta_copa_analise-usuario                = sy-uname.
+  zta_copa_analise-hora                   = sy-timlo.
+ENDFORM.
